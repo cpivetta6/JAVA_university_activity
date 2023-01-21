@@ -1,11 +1,16 @@
 package com.caiopivetta6.domain;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
@@ -17,6 +22,12 @@ public class Category {
 	private Integer id;
 	private String description;
 	
+	@JsonBackReference
+	@OneToMany(mappedBy = "category")
+	private List<Activity> activities = new ArrayList<>();
+	
+	
+	
 	
 	public Category() {
 		
@@ -27,6 +38,18 @@ public class Category {
 		super();
 		this.id = id;
 		this.description = description;
+	}
+	
+	
+
+
+	public List<Activity> getActivities() {
+		return activities;
+	}
+
+
+	public void setActivities(List<Activity> activities) {
+		this.activities = activities;
 	}
 
 

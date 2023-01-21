@@ -1,4 +1,4 @@
-package com.caiopivetta6.resources;
+package com.caiopivetta6.services.exceptions;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

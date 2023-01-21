@@ -3,10 +3,14 @@ package com.caiopivetta6.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -23,6 +27,10 @@ public class Participant implements Serializable{
 	private String name;
 	private String email;
 	
+	@JsonBackReference
+	@ManyToOne
+	@JoinColumn(name = "activity_id")
+	private Activity activity;
 	
 	
 	public Participant(Integer id, String name, String email) {
@@ -34,6 +42,16 @@ public class Participant implements Serializable{
 	
 	public Participant() {
 		
+	}
+	
+	
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
 	public Integer getId() {

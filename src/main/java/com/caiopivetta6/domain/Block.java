@@ -4,10 +4,14 @@ import java.io.Serializable;
 import java.time.Instant;
 import java.util.Objects;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,6 +26,11 @@ public class Block implements Serializable {
 	private Instant date_start;
 	private Instant date_end;
 	
+	@JsonIgnore
+	@ManyToOne
+	@JoinColumn(name = "activity_id")
+	private Activity activity;
+	
 	public Block() {
 		
 	}
@@ -31,6 +40,16 @@ public class Block implements Serializable {
 		this.id = id;
 		this.date_start = date_start;
 		this.date_end = date_end;
+	}
+	
+	
+
+	public Activity getActivity() {
+		return activity;
+	}
+
+	public void setActivity(Activity activity) {
+		this.activity = activity;
 	}
 
 	public Integer getId() {

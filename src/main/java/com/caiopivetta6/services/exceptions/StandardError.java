@@ -1,4 +1,4 @@
-package com.caiopivetta6.resources;
+package com.caiopivetta6.services.exceptions;
 
 import java.io.Serializable;
 

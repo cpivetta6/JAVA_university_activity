@@ -1,12 +1,20 @@
 package com.caiopivetta6.domain;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
+
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -25,7 +33,19 @@ public class Activity implements Serializable {
 	private String description;
 	private Double price;
 	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "activity")
+	private List<Participant> participants = new ArrayList<>();
 	
+	@JsonManagedReference
+	@OneToMany(mappedBy = "activity")
+	private List<Block> blocks = new ArrayList<>();
+	
+	
+	@JsonManagedReference
+	@ManyToOne
+	@JoinColumn(name = "category_id")
+	private Category category;
 
 	public Activity(Integer id, String name, String description, Double price) {
 		super();
@@ -37,6 +57,34 @@ public class Activity implements Serializable {
 	
 	public Activity() {
 		
+	}
+	
+	
+	
+	
+
+	public List<Block> getBlocks() {
+		return blocks;
+	}
+
+	public void setBlocks(List<Block> blocks) {
+		this.blocks = blocks;
+	}
+
+	public Category getCategory() {
+		return category;
+	}
+
+	public void setCategory(Category category) {
+		this.category = category;
+	}
+
+	public List<Participant> getParticipants() {
+		return participants;
+	}
+
+	public void setParticipants(List<Participant> participants) {
+		this.participants = participants;
 	}
 
 	public Integer getId() {
