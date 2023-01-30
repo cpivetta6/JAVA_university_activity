@@ -9,9 +9,9 @@ import org.springframework.stereotype.Service;
 
 import com.caiopivetta6.domain.Participant;
 import com.caiopivetta6.repositories.ParticipantRepository;
-import com.caiopivetta6.resources.exceptions.ObjectNotFoundException;
+import com.caiopivetta6.resources.exception.ResourceNotFoundException;
 import com.caiopivetta6.services.exceptions.DatabaseException;
-import com.caiopivetta6.services.exceptions.ResourceNotFoundException;
+import com.caiopivetta6.services.exceptions.ObjectNotFoundException;
 
 import jakarta.persistence.EntityNotFoundException;
 

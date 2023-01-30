@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.caiopivetta6.domain.Activity;
 import com.caiopivetta6.repositories.ActivityRepository;
-import com.caiopivetta6.resources.exceptions.ObjectNotFoundException;
+import com.caiopivetta6.services.exceptions.ObjectNotFoundException;
 
 @Service
 public class ActivityService {

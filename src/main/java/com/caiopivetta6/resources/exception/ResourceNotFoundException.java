@@ -1,4 +1,4 @@
-package com.caiopivetta6.services.exceptions;
+package com.caiopivetta6.resources.exception;
 
 public class ResourceNotFoundException extends RuntimeException {
 

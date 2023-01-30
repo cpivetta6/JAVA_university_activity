@@ -1,4 +1,4 @@
-package com.caiopivetta6.resources.exceptions;
+package com.caiopivetta6.services.exceptions;
 
 public class ObjectNotFoundException extends RuntimeException {
 
