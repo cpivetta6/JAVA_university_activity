@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import com.caiopivetta6.domain.Participant;
-import com.caiopivetta6.domain.Participant;
 import com.caiopivetta6.services.ParticipantService;
 
 @RestController
