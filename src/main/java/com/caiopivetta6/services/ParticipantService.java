@@ -28,6 +28,11 @@ public class ParticipantService {
 				"Object not found! Id: " + id + ", Tipo: " + Participant.class.getName()));
 	}
 	
+	public Participant insert(Participant obj) {
+		repository.save(obj);
+		return obj;
+	}
+	
 	public void delete(Integer id) {
 		try {
 		repository.deleteById(id);
